@@ -1,0 +1,15 @@
+import mongoose from "mongoose";
+
+const autorSchema = new mongoose.Schema(
+  {
+    id: { type: mongoose.Schema.Types.ObjectId },
+    nome: { type: String, required: true },
+    nacionalidade: { type: String },
+  },
+  { versionKey: false }
+);
+
+// Verifica se o modelo já existe antes de defini-lo
+const autor = mongoose.models.autores || mongoose.model("autores", autorSchema);
+
+export { autor, autorSchema };
